@@ -1,0 +1,20 @@
+version: '2.1'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+  sample:
+    build: .
+    ports:
+    - 8080:8080
+    container_name: sample
+    environment:
+    - SAMPLE_ENV_VARIABLE
+    image: jlee2920/golang-api:latest
+    volumes:
+    - data:/etc/golang-api
+
+volumes:
+  data: #holds the information necessary⏎
